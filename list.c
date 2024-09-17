@@ -2,27 +2,24 @@
 #include "list.h"
 
 void list_add(struct list_element *list_head, struct list_element *new_element) {
-	new_element->next = *list_head;
-	*list_head = new_element;
+	new_element->next = *list_head; //make next pointer of new element point to the head
+	*list_head = new_element; //make new element head of list (adding to beginning)
 }
 
 void list_remove(struct list_element *element){
-	struct list_element *current = *list_head;
-	struct list_element *prev = NULL;
 
-	if (current == element) {
-		*list_head = current->next;
+	if (element == NULL) { //if element is null
 		return;
 	}
 
-	while (current != NULL && current != element) {
-		prev = current;
-		current = current->next;
+	if (element->next == NULL) { //if element is last, it is already pointing at null so it is disconnected
+		return;
 	}
 
-	if (current == element) {
-		prev->next = current->next;
-	}
+
+	struct list_element *next_element = element->next; //pointer that points the current element to the next
+	element->next = next_element->next; //point to element after the next (skipping next element)
+	element->data = next_element->data; //copy data into current element from next
 }
 
 int main(){
