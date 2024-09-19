@@ -17,9 +17,10 @@ void list_remove(struct list_element *element){
 	}
 
 
-	struct list_element *next_element = element->next; //pointer that points the current element to the next
-	element->next = next_element->next; //point to element after the next (skipping next element)
+	struct list_element *next_element = element->next; //pointer that point the current element to the next
 	element->data = next_element->data; //copy data into current element from next
+	element->next = next_element->next; //point to element after the next (skipping next element)
+
 }
 
 int main(){
