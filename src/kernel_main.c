@@ -1,5 +1,7 @@
 
 #include <stdio.h>
+#include "rprintf.h"
+
 
 char glbl[128];
 
@@ -14,9 +16,11 @@ void delay1ms() {
 	}
 }
 
+
 void kernel_main() {
 
-    extern int __bss_start, __bss_end;
+    extern unsigned int __bss_start;
+    extern unsigned int __bss_end;
     char *bssstart, *bssend;
 
     bssstart = (char *)&__bss_start;
@@ -28,9 +32,11 @@ void kernel_main() {
 	bssstart++;
     }
 
-    unsigned long start = get_timer_count(); //start time
+   // unsigned long start = get_timer_count(); //start time
     delay1ms(); //call function
-    unsigned long end = get_timer_count(); //end time
+   // unsigned long end = get_timer_count(); //end time
+   
+   
     while(1){
     }
 }
