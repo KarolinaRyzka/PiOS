@@ -10,10 +10,10 @@ void myputc(int data) {
 
 }
 
-
+/*
 void main() {
 	esp_printf(myputc, "Execution level is: %d\r\n", getEL());
 }
-
+*/
 
 
