@@ -1,7 +1,7 @@
 
 #include <stdio.h>
 #include "rprintf.h"
-
+#include "mmu.h"
 
 char glbl[128];
 
@@ -36,6 +36,7 @@ void kernel_main() {
     delay1ms(); //call function
    // unsigned long end = get_timer_count(); //end time
    
+    mapPages((void*)0x0, (void*)0x0);
    
     while(1){
     }

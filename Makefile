@@ -20,6 +20,13 @@ OBJS = \
 	el.o \
 	page.o \
 	list.o \
+	mmu.o \
+
+
+
+
+
+
 
 
 
