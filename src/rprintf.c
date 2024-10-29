@@ -6,7 +6,6 @@
 /* For Embedded Systems Programming, 1991            */
 /*                                                   */
 /*---------------------------------------------------*/
-
 #include "rprintf.h"
 /*---------------------------------------------------*/
 /* The purpose of this routine is to output data the */

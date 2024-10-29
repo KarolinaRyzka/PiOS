@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include "rprintf.h"
 #include "mmu.h"
-
+#include "fat.h"
 char glbl[128];
 
 unsigned long get_timer_count() {
@@ -37,7 +37,26 @@ void kernel_main() {
    // unsigned long end = get_timer_count(); //end time
    
     mapPages((void*)0x0, (void*)0x0);
-   
+	
+    //initialize FAT filesystem
+    if (fatInit() < 0){
+	    return;
+    }
+
+    int file_cluster =  fatOpen("test.txt");
+    if (file_cluster < 0) {
+	    return;
+    }
+
+    //read file content
+    char file_buffer[4096];
+    int bytes_read = fatRead(file_cluster, file_buffer, sizeof(file_buffer));
+    if(bytes_read < 0) {
+	    return;
+    }
+
+
+ 
     while(1){
     }
 }

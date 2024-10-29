@@ -21,6 +21,18 @@ OBJS = \
 	page.o \
 	list.o \
 	mmu.o \
+	delays.o \
+	fat.o \
+	sd.o \
+
+
+
+
+
+
+
+
+
 
 
 
